@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcademicSphere</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="images/logo.png" alt="AcademicSphere Logo"></a>
+            <div class="nav-links" id="navlinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="course.html">COURSE</a></li>
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>About Us</h1>
+    </section>
+
+    <section class="about-us">
+        <div class="row">
+            <div class="about-col">
+                <h1>We are the world's best teachers.</h1>
+                <p>Welcome to our educational website, where we are dedicated to providing high-quality learning resources and tools to students, teachers, and lifelong learners. Our mission is to empower individuals through accessible and engaging educational experiences.</p>
+                <h2>Our Approach</h2>
+                <p>At the core of our website is a belief that education should be inclusive, engaging, and tailored to the unique needs of each individual. We curate a wide range of educational resources, from interactive lessons and multimedia content to thought-provoking articles and virtual classrooms. Our team of subject matter experts and instructional designers work tirelessly to ensure that our offerings are both informative and enjoyable.</p>
+                <h2>Our Values</h2>
+                <h3>Integrity:</h3>
+                <p>We are committed to upholding the highest standards of honesty and ethical conduct in all aspects of our work.</p>
+                <h3>Inclusivity:</h3>
+                <p>We celebrate diversity and strive to create a welcoming environment for learners from all walks of life.</p>
+                <h3>Innovation:</h3>
+                <p>We are constantly exploring new technologies and pedagogical approaches to enhance the learning experience.</p>
+                <h3>Collaboration:</h3>
+                <p>We believe in the power of collaboration and actively seek partnerships with educators, institutions, and industry leaders.</p>
+                <h2>Join Us</h2>
+                <p>Whether you are a student looking to expand your knowledge, a teacher seeking innovative teaching tools, or a lifelong learner eager to explore new subjects, we invite you to join our community. Explore our vast collection of resources, connect with like-minded individuals, and embark on a transformative educational journey with us.</p>
+                <hr>
+                <h3> <br>Together, we can unlock the full potential of education and create a brighter future for all.</h3>
+<br>
+                <a href="course.html" class="hero-btn red-btn"> EXPLORE NOW</a>
+            </div>
+            <div class="about-col">
+                <img src="images/about.jpg" alt="About Us">
+            </div>
+        </div>
+    </section>
+
+    <!--------- Footer ----->
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Welcome to our educational website, where we are dedicated to providing high-quality learning resources <br>to students, teachers, and lifelong learners. Our mission is to empower individuals through accessible and engaging educational experiences.</p>
+        <div class="icons">
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2024 AcademicSphere. All rights reserved.</p>
+    </section>
+
+    <!------- JavaScript for Toggle Menu ------->
+    <script>
+        var navlinks = document.getElementById("navlinks");
+        navlinks.style.right = "-200px";  // Ensure the navlinks is initially hidden
+
+        function showMenu(){
+            navlinks.style.right = "0";
+        }
+
+        function hideMenu(){
+            navlinks.style.right = "-200px";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcademicSphere</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="images/logo.png" alt="AcademicSphere Logo"></a>
+            <div class="nav-links" id="navlinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="course.html">COURSE</a></li>
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>Our Courses for Beginners</h1>
+    </section>
+    <!-- Info -->
+    <section class="bed">
+        <h1>DETAILS:</h1>
+        <h4>Ideal for those new to English grammar or looking to strengthen their basic skills.</h4>
+        <h1><br>DURATION:</h1>
+        <h4>40 mins</h4>
+        <h1><br>CLASSES:</h1>
+        <h4>1 CLASS</h4>
+        <h2><br>Cost: 50$</h2>
+        <h3><br>Class Timing Monday-Friday 3:00pm - 9:00pm</h3>
+        <h3><br>No Refund Policy</h3>
+    </section>
+
+    <!-- Contact Us -->
+    <section class="location">
+        <div class="contact-col">
+            <form action="apply.php" method="post">
+                <input type="text" name="name" placeholder="Enter your name" required>
+                <input type="email" name="email" placeholder="Enter email address" required>
+                <label for="meeting-time">Choose a class time between 3 PM and 9 PM:</label>
+                <input type="time" id="meeting-time" name="meeting-time" min="15:00" max="21:00">
+                <label for="meeting-date">Select a class date (Mon-Fri):</label>
+                <input type="date" id="meeting-date" name="meeting-date" required>
+                <span id="error-message" style="color: red;"></span>
+                <input type="text" name="subject" placeholder="Enter your subject" required>
+                <textarea rows="8" name="message" placeholder="Message" required></textarea>
+                <button type="submit" class="hero-btn red-btn">Proceed To Checkout</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="sub-header">
+        <h1>Our Courses for Intermediates</h1>
+    </section>
+    <!-- Info -->
+    <section class="bed">
+        <h1>DETAILS:</h1>
+        <h4>Designed for advanced learners seeking to master the nuances of English grammar for professional or academic purposes.</h4>
+        <h1><br>DURATION:</h1>
+        <h4>40 mins per class</h4>
+        <h1><br>CLASSES:</h1>
+        <h4>8 CLASSES</h4>
+        <h2><br>Cost: 550$</h2>
+        <h3><br>Class Timing Monday-Friday 3:00pm - 9:00pm</h3>
+        <h3><br>No Refund Policy</h3>
+    </section>
+
+    <!-- Contact Us -->
+    <section class="location">
+        <div class="contact-col">
+            <form action="apply.php" method="post">
+                <input type="text" name="name" placeholder="Enter your name" required>
+                <input type="email" name="email" placeholder="Enter email address" required>
+                <label for="meeting-time-adv">Choose a class time between 3 PM and 9 PM:</label>
+                <input type="time" id="meeting-time-adv" name="meeting-time-adv" min="15:00" max="21:00">
+                <label for="meeting-date-adv">Select a class date (Mon-Fri):</label>
+                <input type="date" id="meeting-date-adv" name="meeting-date-adv" required>
+                <span id="error-message-adv" style="color: red;"></span>
+                <input type="text" name="subject" placeholder="Enter your subject" required>
+                <textarea rows="8" name="message" placeholder="Message" required></textarea>
+                <button type="submit" class="hero-btn red-btn">Proceed To Checkout</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Welcome to our educational website, where we are dedicated to providing high-quality learning resources <br> to students, teachers, and lifelong learners. Our mission is to empower individuals through accessible and engaging educational experiences.</p>
+        <div class="icons">
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2024 AcademicSphere. All rights reserved.</p>
+    </section>
+
+    <!-- JavaScript for Toggle Menu -->
+    <script>
+        var navlinks = document.getElementById("navlinks");
+        navlinks.style.right = "-200px";  // Ensure the navlinks is initially hidden
+
+        function showMenu(){
+            navlinks.style.right = "0";
+        }
+
+        function hideMenu(){
+            navlinks.style.right = "-200px";
+        }
+    </script>
+
+    <!-- JavaScript for Date Validation -->
+    <script>
+        function validateDate(inputId, errorMessageId) {
+            var selectedDate = new Date(document.getElementById(inputId).value);
+            var currentDate = new Date();
+            currentDate.setHours(0, 0, 0, 0); // Set the time to midnight to compare dates only
+            var day = selectedDate.getUTCDay();
+            var errorMessage = document.getElementById(errorMessageId);
+
+            // Check if the selected date is a weekend or in the past
+            if (day === 0 || day === 6) {
+                errorMessage.textContent = 'Please select a weekday (Monday to Friday).';
+                document.getElementById(inputId).value = '';  // Clear the selected date
+            } else if (selectedDate < currentDate) {
+                errorMessage.textContent = 'Please select a future date.';
+                document.getElementById(inputId).value = '';  // Clear the selected date
+            } else {
+                errorMessage.textContent = '';
+            }
+        }
+
+        document.getElementById('meeting-date').addEventListener('change', function() {
+            validateDate('meeting-date', 'error-message');
+        });
+
+        document.getElementById('meeting-date-adv').addEventListener('change', function() {
+            validateDate('meeting-date-adv', 'error-message-adv');
+        });
+    </script>
+</body>
+</html>
