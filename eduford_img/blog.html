@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcademicSphere</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="images/logo.png" alt="AcademicSphere Logo"></a>
+            <div class="nav-links" id="navlinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="course.html">COURSE</a></li>
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>Coming Soon!!!</h1>
+    </section>
+
+    <!------------- blog page content -------------->
+    <!--<section class="blog-content">
+        <div class="row">
+            <div class="blog-left">
+                <img src="images/certificate.jpg" alt="Certificate">
+                <h2>Our Online Programs For 2024-2025</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde iusto sint, voluptate nostrum saepe iste consequuntur esse magni. Vitae nam beatae nemo ut reiciendis maxime velit deleniti assumenda esse at!</p>
+                <br><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus quisquam, qui modi laborum minima officia perferendis eveniet illum dolore dicta iste molestiae fugiat dignissimos porro quo debitis esse pariatur cum!</p>
+                <br><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus quisquam, qui modi laborum minima officia perferendis eveniet illum dolore dicta iste molestiae fugiat dignissimos porro quo debitis esse pariatur cum!</p>
+            </div>
+            <div class="blog-right">
+               
+            </div>
+        </div>
+    </section>-->
+
+    <!--------- Footer ----->
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Welcome to our educational website, where we are dedicated to providing high-quality learning resources <br> to students, teachers, and lifelong learners. Our mission is to empower individuals through accessible and engaging educational experiences.</p>
+        <div class="icons">
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2024 AcademicSphere. All rights reserved.</p>
+    </section>
+
+    <!------- JavaScript for Toggle Menu ------->
+    <script>
+        var navlinks = document.getElementById("navlinks");
+        navlinks.style.right = "-200px";  // Ensure the navlinks is initially hidden
+
+        function showMenu(){
+            navlinks.style.right = "0";
+        }
+
+        function hideMenu(){
+            navlinks.style.right = "-200px";
+        }
+    </script>
+</body>
+</html>
