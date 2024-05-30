@@ -3,102 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcademicSphere</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Contact Form</title>
 </head>
 <body>
-    <section class="sub-header">
-        <nav>
-            <a href="index.html"><img src="images/logo.png" alt="AcademicSphere Logo"></a>
-            <div class="nav-links" id="navlinks">
-                <i class="fa fa-times" onclick="hideMenu()"></i>
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="about.html">ABOUT</a></li>
-                    <li><a href="course.html">COURSE</a></li>
-                    <li><a href="blog.html">BLOG</a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
-                </ul>
-            </div>
-            <i class="fa fa-bars" onclick="showMenu()"></i>
-        </nav>
-        <h1>Our Courses</h1>
-    </section>
 
-<!---------------- Courses ----------->
-<section class="course">
-    <h1>Courses We Offer</h1>
-    <p>Master the intricacies of English grammar with our comprehensive course designed to enhance your language skills. Whether you're a beginner looking to build a strong foundation or an advanced learner aiming to refine your grammar, our course caters to all levels.</p>
+    <form id="contactForm" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        <label for="subject">Subject:</label><br>
+        <input type="text" id="subject" name="subject"><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message"></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
 
-    <div class="row">
-        <div class="course-col">
-        <a href="beg.html" class="into">
-        <h3>Basic</h3>
-        <p>Ideal for those new to English grammar or looking to strengthen their basic skills.</p>
-        <h1> <br>DURATION:</h1>
-        <h4> 40 mins</h4>
-        <h1> <br>Classes:</h1>
-        <h4> 1 Class</h4>
-        </a>
-        </div>
-        <div class="course-col">
-        <a href="inter.html" class="into">
-        <h3>Intermediate</h3>
-        <p>Perfect for learners who have a grasp of basic grammar and want to progress to more complex concepts.</p>
-        <h1> <br>DURATION:</h1>
-        <h4> 40 mins per class</h4>
-        <h1> <br>Classes:</h1>
-        <h4> 5 Classes</h4>
-        </a>
-        </div>
-        <div class="course-col">
-        <a href="advan.html" class="into">
-        <h3>Advanced</h3>
-        <p>Designed for advanced learners seeking to master the nuances of English grammar for professional or academic purposes.</p>
-        <h1> <br>DURATION:</h1>
-        <h4> 40 mins per class</h4>
-        <h1> <br>Classes:</h1>
-        <h4> 8 Classes</h4>
-        </a>
-        </div>
-    </div>
-    <div>
-        <h1 class="oo">Why Choose Our Course?</h1>
-<h2 class="title">Expert Instructors:</h2>
-<p class="o">Learn from experienced teachers who are passionate about helping you succeed.</p>
-<h2 class="title">Flexible Learning:</h2>
-<p class="o">Study at your own pace with our online classes and support.</p>
-<h2 class="title">Interactive Content:</h2>
-<p class="o">Engage with interactive lessons to reinforce your learning.</p>
-</div>
-    
-</section>
-
-
-    <!--------- Footer ----->
-    <section class="footer">
-        <h4>About Us</h4>
-        <p>Welcome to our educational website, where we are dedicated to providing high-quality learning resources <br> to students, teachers, and lifelong learners. Our mission is to empower individuals through accessible and engaging educational experiences.</p>
-        <div class="icons">
-            <a href="https://www.youtube.com/channel/UC_YP0HDhhMkt6P25iJ5iilw"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://www.linkedin.com/in/academic-sphere-b09420310/"><i class="fa-brands fa-linkedin"></i></a>
-        </div>
-        <p>&copy; 2024 AcademicSphere. All rights reserved.</p>
-    </section>
-
-    <!------- JavaScript for Toggle Menu ------->
     <script>
-        var navlinks = document.getElementById("navlinks");
-        navlinks.style.right = "-200px";  // Ensure the navlinks is initially hidden
-
-        function showMenu(){
-            navlinks.style.right = "0";
-        }
-
-        function hideMenu(){
-            navlinks.style.right = "-200px";
-        }
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var form = event.target;
+            var formData = new FormData(form);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "send_email.php");
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        if (response.status === "success") {
+                            window.location.href = "contact.html?status=success";
+                        } else {
+                            console.error("Email sending failed.");
+                        }
+                    } else {
+                        console.error("Server error:", xhr.status);
+                    }
+                }
+            };
+            xhr.send(formData);
+        });
     </script>
+
 </body>
 </html>
