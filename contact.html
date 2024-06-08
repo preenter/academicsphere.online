@@ -67,9 +67,7 @@
     <script>
         function sendEmail(){
                 Email.send({
-        Host : "smtp.gmail.com",
-        Username : "mahmad16feb@gmail.com",
-        Password : "A1122986754a0",
+        secureToken: "bff4c638-9021-4c9c-b7f3-2df6a77716a9",
         To : 'academicsphereinfo@gmail.com',
         From : document.getElementById("email").value,
         Subject : "New Contact Form Enquiry",
@@ -77,7 +75,7 @@
         + "<br> Email: " + document.getElementById("email").value
         + "<br> Message: " + document.getElementById("mess").value
     }).then(
-    message => alert("message")
+    message => alert("Message Sent Successfully.")
     );
             }
     </script>
